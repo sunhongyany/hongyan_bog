@@ -28,7 +28,7 @@ LINKS = (('Pelican', 'http://getpelican.com/'),
 
 # Social widget
 SOCIAL = (('wode qq', 'www.qq.com'),
-          ('weibo', '#'),)
+          ('weibo', 'weibo.cn'),)
 
 DEFAULT_PAGINATION = 10
 
