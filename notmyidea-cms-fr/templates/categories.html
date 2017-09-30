@@ -1,10 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="blogItem">
 <ul>
-{% for tag, articles in tags %}
-    <li>{{ tag }}</li>
+{% for category, articles in categories %}
+    <li>{{ category }}</li>
 {% endfor %}
 </ul>
-</div>
 {% endblock %}
