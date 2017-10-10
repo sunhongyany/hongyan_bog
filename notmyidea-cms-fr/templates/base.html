@@ -65,21 +65,6 @@
                         </ul>
                 </div><!-- /.blogroll -->
         {% endif %}
-        {% if SOCIAL %}
-                <div class="widget social">
-                        <h2>Réseaux sociaux</h2>
-                        <ul>
-                            <li><a href="{{ SITEURL }}/{{ FEED }}" rel="alternate">atom feed</a></li>
-                            {% if FEED_RSS %}
-                            <li><a href="{{ SITEURL }}/{{ FEED_RSS }}" rel="alternate">rss feed</a></li>
-                            {% endif %}
-
-                        {% for name, link in SOCIAL %}
-                            <li><a href="{{ link }}">{{ name }}</a></li>
-                        {% endfor %}
-                        </ul>
-                </div><!-- /.social -->
-        {% endif %}
         </aside><!-- /#sidebar -->
 
 {% include 'analytics.html' %}
