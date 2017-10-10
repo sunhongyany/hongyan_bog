@@ -3,14 +3,14 @@ Date: 2010-06-03 20:20
 Category: python
 
 
-class Person(object):
+    class Person(object):
 
-    def __init__(self, name, gender):
+        def __init__(self, name, gender):
 
-        self.name = name
+            self.name = name
 
-        self.gender = gender
+            self.gender = gender
 
-    def __str__(self):
+        def __str__(self):
 
-        return '(Person: %s, %s)' % (self.name, self.gender)
+            return '(Person: %s, %s)' % (self.name, self.gender)

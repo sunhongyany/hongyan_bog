@@ -21,14 +21,8 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Blogroll
-LINKS = (('Pelican', 'http://getpelican.com/'),
-         ('iPython.org', 'http://python.org/'),
-         ('Jinja2', 'http://jinja.pocoo.org/'),
-         ('You can modify those links in your config file', '#'),)
 
 # Social widget
-SOCIAL = (('wode qq', 'www.qq.com'),
-          ('weibo', 'weibo.cn'),)
 
 DEFAULT_PAGINATION = 10
 
