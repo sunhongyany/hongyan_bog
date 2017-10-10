@@ -1,6 +1,7 @@
 Title: python中repr和str的区别 
 Date: 2010-06-03 20:20
-Category: Review
+Category: python
+
 
 class Person(object):
 
