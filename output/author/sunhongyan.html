@@ -53,7 +53,7 @@
  
         <li><article class="hentry">    
                 <header>
-                        <h1><a href="/pythonzhong-reprhe-strde-qu-bie.html" rel="bookmark" title="Permalien vers «python中repr和str的区别»">python中repr和str的区别</a></h1>
+                        <h1><a href="/pythonzhong-__repr__he-__str__.html" rel="bookmark" title="Permalien vers «python中 __repr__和__str__»">python中 __repr__和__str__</a></h1>
                 </header>
                 
                 <div class="entry-content">
@@ -68,7 +68,10 @@
                         <p> Dans <a href="/category/python.html">python</a></p>
 </p>                    <p></p>
                 </footer><!-- /.post-info -->
-                <div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span><span class="o">:</span>
+                <p>python对象的一个基本要求就是它得有个合理的字符串表示形式，我们可以通过__repr__ 和__str__来满</p>
+<p>足这个要求，前者方便调试和记录日志，后者是给终端用户看的。</p>
+<p>例如，我们构造一个Person类：</p>
+<div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span><span class="o">:</span>
 
     <span class="nx">def</span> <span class="nx">__init__</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">gender</span><span class="p">)</span><span class="o">:</span>
 
@@ -80,7 +83,23 @@
 
         <span class="k">return</span> <span class="s1">&#39;(Person: %s, %s)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">self</span><span class="p">.</span><span class="nx">gender</span><span class="p">)</span>
 </pre></div>
-                <a class="readmore" href="/pythonzhong-reprhe-strde-qu-bie.html">Lire la suite...</a>
+
+
+<p>当在终端输入：</p>
+<div class="highlight"><pre><span></span>&gt;&gt;&gt; p = Person(&quot;a&quot;, &quot;women&quot;)
+
+&gt;&gt;&gt; print(p)
+
+(Person: a, women)
+
+&gt;&gt;&gt; p
+
+&lt;__main__.Person object at 0x1055b4b70&gt;
+</pre></div>
+
+
+<p>可以看出 …</p>
+                <a class="readmore" href="/pythonzhong-__repr__he-__str__.html">Lire la suite...</a>
                 </div><!-- /.entry-content -->
         </article></li>
 </ol><!-- /#posts-list -->
