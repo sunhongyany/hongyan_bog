@@ -33,30 +33,7 @@
         
      <section id="content" class="body">
         <aside id="featured"><article>
-                <h1 class="entry-title"><a href="/my-first-review.html">My First Review</a></h1> 
-                <footer class="post-info">
-                        <abbr class="published" title="2010-12-03T10:20:00+08:00">
-                                Publié le 03/12/2010 &agrave; 10:20
-                        </abbr>
-
-                        <address class="vcard author">
-                                Par <a class="url fn" href="#">sunhongyan</a>
-                        </address>
-                <p>Dans <a href="/category/review.html">Review</a>. </p>
-</p>                </footer><!-- /.post-info -->
-                <p>Following is a review of my favorite mechanical keyboard.</p>
-        </article></aside><!-- /#featured -->
-                <h1>Autres articles</h1>
-                <hr />
-                    <ol id="posts-list" class="hfeed">
-        
- 
-        <li><article class="hentry">    
-                <header>
-                        <h1><a href="/pythonzhong-__repr__he-__str__.html" rel="bookmark" title="Permalien vers «python中 __repr__和__str__»">python中 __repr__和__str__</a></h1>
-                </header>
-                
-                <div class="entry-content">
+                <h1 class="entry-title"><a href="/pythonzhong-__repr__he-__str__.html">python中 __repr__和__str__</a></h1> 
                 <footer class="post-info">
                         <abbr class="published" title="2010-06-03T20:20:00+08:00">
                                 Publié le 03/06/2010 &agrave; 20:20
@@ -65,9 +42,8 @@
                         <address class="vcard author">
                                 Par <a class="url fn" href="#">sunhongyan</a>
                         </address>
-                        <p> Dans <a href="/category/python.html">python</a></p>
-</p>                    <p></p>
-                </footer><!-- /.post-info -->
+                <p>Dans <a href="/category/python.html">python</a>. </p>
+</p>                </footer><!-- /.post-info -->
                 <p>python对象的一个基本要求就是它得有个合理的字符串表示形式，我们可以通过__repr__ 和__str__来满</p>
 <p>足这个要求，前者方便调试和记录日志，后者是给终端用户看的。</p>
 <p>例如，我们构造一个Person类：</p>
@@ -98,10 +74,36 @@
 </pre></div>
 
 
-<p>可以看出 …</p>
-                <a class="readmore" href="/pythonzhong-__repr__he-__str__.html">Lire la suite...</a>
-                </div><!-- /.entry-content -->
-        </article></li>
+<p>可以看出，当直接输入p时，并没有调用__str__方法。</p>
+<p>&lt;<strong>main</strong>.Person object at 0x1055b4b70&gt; 的意思是变量p指向类Person的object，后面的0x1055b4b70</p>
+<p>是内存地址，每个object的内存地址都不一样，而Person本身是个类。</p>
+<p>接下来我们在Person里定义__repr__方法：</p>
+<div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span><span class="o">:</span>
+
+    <span class="nx">def</span> <span class="nx">__init__</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">gender</span><span class="p">)</span><span class="o">:</span>
+
+        <span class="nx">self</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span>
+
+        <span class="nx">self</span><span class="p">.</span><span class="nx">gender</span> <span class="o">=</span> <span class="nx">gender</span>
+
+    <span class="nx">def</span> <span class="nx">__repr__</span><span class="p">(</span><span class="nx">self</span><span class="p">)</span><span class="o">:</span>
+
+        <span class="k">return</span> <span class="s1">&#39;(Person: %s, %s)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">self</span><span class="p">.</span><span class="nx">gender</span><span class="p">)</span>
+</pre></div>
+
+
+<p>当在终端输入：</p>
+<div class="highlight"><pre><span></span>&gt;&gt;&gt; p = Person(&quot;a&quot;, &quot;women&quot;)
+
+&gt;&gt;&gt; print(p)
+
+(Person: a, women)
+
+&gt;&gt;&gt; p
+
+(Person: a, women)
+</pre></div>
+        </article></aside><!-- /#featured -->
 </ol><!-- /#posts-list -->
 </section><!-- /#content -->
 
@@ -110,7 +112,6 @@
                         <h2>Catégories</h2>
                         <ul>
                            <li ><a href="/category/python.html">python</a></li>
-                           <li ><a href="/category/review.html">Review</a></li>
                         </ul>
                 </div>
         </aside><!-- /#sidebar -->
