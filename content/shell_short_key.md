@@ -1,4 +1,4 @@
-Title: sell 快捷键
+Title: shell 快捷键
 Date: 2017-05-23 20:00
 Category: shell
 
