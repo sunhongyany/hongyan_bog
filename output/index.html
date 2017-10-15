@@ -33,7 +33,82 @@
         
      <section id="content" class="body">
         <aside id="featured"><article>
-                <h1 class="entry-title"><a href="/pythonzhong-__repr__he-__str__.html">python中 __repr__和__str__</a></h1> 
+                <h1 class="entry-title"><a href="/pythonzhong-de-nei-zhi-xu-lie-yi.html">python中的内置序列（一）</a></h1> 
+                <footer class="post-info">
+                        <abbr class="published" title="2017-06-03T20:20:00+08:00">
+                                Publié le 03/06/2017 &agrave; 20:20
+                        </abbr>
+
+                        <address class="vcard author">
+                                Par <a class="url fn" href="#">sunhongyan</a>
+                        </address>
+                <p>Dans <a href="/category/python.html">python</a>. </p>
+</p>                </footer><!-- /.post-info -->
+                <p>python的序列按存放的数据类型是否相同，可分为：</p>
+<p>容器序列：</p>
+<ul>
+<li>tuple，list，collections.queue这些序列可以存放的不同数据类型。</li>
+</ul>
+<p>扁平序列：</p>
+<ul>
+<li>str，bytes，bytearry，memoryview和array.array这些序列只能容纳一种类型。</li>
+</ul>
+<p>容器序列存放的是它们所包含的任意类型对象的引用，而扁平序列存放的是值不是引用。扁平序列是一</p>
+<p>段连续的内存空间，扁平序列更加紧凑，但他只能存放诸如字符，数值和字节这种基础类型。</p>
+<p>还可按照能否被修改来分类：</p>
+<p>可变序列：</p>
+<ul>
+<li>list，bytearray，array.array，collections.queue和memoryview。</li>
+</ul>
+<p>不可变序列：</p>
+<ul>
+<li>tuple，str和bytes。</li>
+</ul>
+        </article></aside><!-- /#featured -->
+                <h1>Autres articles</h1>
+                <hr />
+                    <ol id="posts-list" class="hfeed">
+        
+ 
+        <li><article class="hentry">    
+                <header>
+                        <h1><a href="/sell-kuai-jie-jian.html" rel="bookmark" title="Permalien vers «sell 快捷键»">sell 快捷键</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
+                        <abbr class="published" title="2017-05-23T20:00:00+08:00">
+                                Publié le 23/05/2017 &agrave; 20:00
+                        </abbr>
+
+                        <address class="vcard author">
+                                Par <a class="url fn" href="#">sunhongyan</a>
+                        </address>
+                        <p> Dans <a href="/category/shell.html">shell</a></p>
+</p>                    <p></p>
+                </footer><!-- /.post-info -->
+                <p>ctrl+a 跳到所在行的开头</p>
+<p>ctrl+e 跳到光标所在行的行尾</p>
+<p>ctrl+l 清屏</p>
+<p>ctrl+u 清除这一行中光标前的内容</p>
+<p>ctrl+c 杀死正在运行的程序</p>
+<p>ctrl+d 退出当前shell </p>
+<p>ctrl+z 将正在运行的程序变成挂起的后台进程，fg恢复</p>
+<p>ctrl+w 删除光标前的单词</p>
+<p>ctrl+k 清除这一行中光标后的内容</p>
+<p>ctrl+t 交换光标前的最后两个字符</p>
+<p>esc+t 交换光标前的最后两个单词</p>
+                <a class="readmore" href="/sell-kuai-jie-jian.html">Lire la suite...</a>
+                </div><!-- /.entry-content -->
+        </article></li>
+        
+ 
+        <li><article class="hentry">    
+                <header>
+                        <h1><a href="/pythonzhong-__repr__he-__str__.html" rel="bookmark" title="Permalien vers «python中 __repr__和__str__»">python中 __repr__和__str__</a></h1>
+                </header>
+                
+                <div class="entry-content">
                 <footer class="post-info">
                         <abbr class="published" title="2010-06-03T20:20:00+08:00">
                                 Publié le 03/06/2010 &agrave; 20:20
@@ -42,8 +117,9 @@
                         <address class="vcard author">
                                 Par <a class="url fn" href="#">sunhongyan</a>
                         </address>
-                <p>Dans <a href="/category/python.html">python</a>. </p>
-</p>                </footer><!-- /.post-info -->
+                        <p> Dans <a href="/category/python.html">python</a></p>
+</p>                    <p></p>
+                </footer><!-- /.post-info -->
                 <p>python对象的一个基本要求就是它得有个合理的字符串表示形式，我们可以通过__repr__ 和__str__来满</p>
 <p>足这个要求，前者方便调试和记录日志，后者是给终端用户看的。</p>
 <p>例如，我们构造一个Person类：</p>
@@ -74,36 +150,52 @@
 </pre></div>
 
 
-<p>可以看出，当直接输入p时，并没有调用__str__方法。</p>
-<p>&lt;<strong>main</strong>.Person object at 0x1055b4b70&gt; 的意思是变量p指向类Person的object，后面的0x1055b4b70</p>
-<p>是内存地址，每个object的内存地址都不一样，而Person本身是个类。</p>
-<p>接下来我们在Person里定义__repr__方法：</p>
-<div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span><span class="o">:</span>
+<p>可以看出 …</p>
+                <a class="readmore" href="/pythonzhong-__repr__he-__str__.html">Lire la suite...</a>
+                </div><!-- /.entry-content -->
+        </article></li>
+        
+ 
+        <li><article class="hentry">    
+                <header>
+                        <h1><a href="/pythonzhong-de-nei-zhi-xu-lie-er.html" rel="bookmark" title="Permalien vers «python中的内置序列（二）»">python中的内置序列（二）</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
+                        <abbr class="published" title="2010-06-03T20:20:00+08:00">
+                                Publié le 03/06/2010 &agrave; 20:20
+                        </abbr>
 
-    <span class="nx">def</span> <span class="nx">__init__</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">gender</span><span class="p">)</span><span class="o">:</span>
-
-        <span class="nx">self</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span>
-
-        <span class="nx">self</span><span class="p">.</span><span class="nx">gender</span> <span class="o">=</span> <span class="nx">gender</span>
-
-    <span class="nx">def</span> <span class="nx">__repr__</span><span class="p">(</span><span class="nx">self</span><span class="p">)</span><span class="o">:</span>
-
-        <span class="k">return</span> <span class="s1">&#39;(Person: %s, %s)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">self</span><span class="p">.</span><span class="nx">gender</span><span class="p">)</span>
+                        <address class="vcard author">
+                                Par <a class="url fn" href="#">sunhongyan</a>
+                        </address>
+                        <p> Dans <a href="/category/python.html">python</a></p>
+</p>                    <p></p>
+                </footer><!-- /.post-info -->
+                <p>列表推导式python2与python3区别</p>
+<p>在python2中：</p>
+<div class="highlight"><pre><span></span>&gt;&gt;&gt; [x for x in range(5)]
+[0, 1, 2, 3, 4]
+&gt;&gt;&gt; x
+4
+&gt;&gt;&gt; i = 0
+&gt;&gt;&gt; [i for i in range(5)]
+[0, 1, 2, 3, 4]
+&gt;&gt;&gt; i
+4
 </pre></div>
 
 
-<p>当在终端输入：</p>
-<div class="highlight"><pre><span></span>&gt;&gt;&gt; p = Person(&quot;a&quot;, &quot;women&quot;)
-
-&gt;&gt;&gt; print(p)
-
-(Person: a, women)
-
-&gt;&gt;&gt; p
-
-(Person: a, women)
-</pre></div>
-        </article></aside><!-- /#featured -->
+<p>在python3中：</p>
+<div class="highlight"><pre><span></span>&gt;&gt;&gt; [x for x in range(5)]
+[0, 1, 2, 3, 4]
+&gt;&gt;&gt; x
+Traceback (most recent call last):
+    File &quot;&lt;pyshell …</pre></div>
+                <a class="readmore" href="/pythonzhong-de-nei-zhi-xu-lie-er.html">Lire la suite...</a>
+                </div><!-- /.entry-content -->
+        </article></li>
 </ol><!-- /#posts-list -->
 </section><!-- /#content -->
 
@@ -112,6 +204,7 @@
                         <h2>Catégories</h2>
                         <ul>
                            <li ><a href="/category/python.html">python</a></li>
+                           <li ><a href="/category/shell.html">shell</a></li>
                         </ul>
                 </div>
         </aside><!-- /#sidebar -->
