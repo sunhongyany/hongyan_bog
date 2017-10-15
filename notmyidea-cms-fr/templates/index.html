@@ -35,6 +35,7 @@
                 </header>
                 
                 <div class="entry-content">
+                {{ article.summary }}
                 <footer class="post-info">
                         <abbr class="published" title="{{ article.date.isoformat() }}">
                                 Publié le {{ article.date.strftime('%d/%m/%Y &agrave; %H:%M') }}
@@ -47,7 +48,6 @@
                         {% include 'taglist.html' %}
                     <p>{% if PDF_PROCESSOR %}<a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">PDF</a>{% endif %}</p>
                 </footer><!-- /.post-info -->
-                {{ article.summary }}
                 <a class="readmore" href="{{ SITEURL }}/{{ article.url }}">Lire la suite...</a>
                 </div><!-- /.entry-content -->
         </article></li>
