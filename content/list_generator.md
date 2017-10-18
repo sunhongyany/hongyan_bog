@@ -45,3 +45,14 @@ filter和map合起来能做的事，列表推导式也可以。
     [115, 102]
 
 在python2中filter和map返回列表，在python3下则分别返回filter对象和map对象。
+
+如果一个生成器表达式是一个函数调用的唯一参数，那么不需要在用额外的括号把他们围起来。
+
+    >>> s = 'asdf'
+    >>> list(ord(i) for i in s)
+    >>>[97, 115, 100, 102]
+    >>>import array
+    >>> array.array('I',(ord(i) for i in s))
+    array('I', [97, 115, 100, 102])
+    >>> array.array('I',ord(i) for i in s)
+    SyntaxError: Generator expression must be parenthesized if not sole argument

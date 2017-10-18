@@ -34,10 +34,10 @@
                         <h1><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalien vers «{{ article.title|striptags }}»">{{ article.title }}</a></h1>
                 </header>
                 
-                <div class="entry-content">
+                <div class="entry-content" style="max-height: 150px; overflow: hidden">
                 {{ article.summary }}
-                <a class="readmore" href="{{ SITEURL }}/{{ article.url }}">Lire la suite...</a>
                 </div><!-- /.entry-content -->
+                <a class="readmore" href="{{ SITEURL }}/{{ article.url }}">Lire la suite...</a>
         </article></li>
     {% endif %}
 {% endfor %}

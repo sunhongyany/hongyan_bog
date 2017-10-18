@@ -33,10 +33,10 @@
         
      <section id="content" class="body">
         <aside id="featured"><article>
-                <h1 class="entry-title"><a href="/formatyong-fa.html">format用法</a></h1> 
+                <h1 class="entry-title"><a href="/dui-xu-lie-shi-yong-huo.html">对序列使用+或*</a></h1> 
                 <footer class="post-info">
-                        <abbr class="published" title="2017-06-03T20:20:00+08:00">
-                                Publié le 03/06/2017 &agrave; 20:20
+                        <abbr class="published" title="2017-06-24T20:30:00+08:00">
+                                Publié le 24/06/2017 &agrave; 20:30
                         </abbr>
 
                         <address class="vcard author">
@@ -44,6 +44,73 @@
                         </address>
                 <p>Dans <a href="/category/python.html">python</a>. </p>
 </p>                </footer><!-- /.post-info -->
+                
+        </article></aside><!-- /#featured -->
+                <h1>Autres articles</h1>
+                <hr />
+                    <ol id="posts-list" class="hfeed">
+        
+ 
+        <li><article class="hentry">    
+                <header>
+                        <h1><a href="/qie-pian.html" rel="bookmark" title="Permalien vers «切片»">切片</a></h1>
+                </header>
+                
+                <div class="entry-content" style="max-height: 150px; overflow: hidden">
+                <p>给切片赋值</p>
+<div class="highlight"><pre><span></span>&gt;&gt;&gt; l = list(range(10))
+&gt;&gt;&gt; l
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+&gt;&gt;&gt; l[2:5] = [&#39;a&#39;]
+&gt;&gt;&gt; l
+[0, 1, &#39;a&#39;, 5, 6, 7, 8, 9]
+&gt;&gt;&gt; l[3:6:2] = [&#39;b&#39;, &#39;c&#39;]
+&gt;&gt;&gt; l
+[0, 1, &#39;a&#39;, &#39;b&#39;, 6, &#39;c&#39;, 8, 9]
+</pre></div>
+
+
+<p>但是赋值对象是切片时，赋值语句右面必须是个可迭代对象。</p>
+<div class="highlight"><pre><span></span>&gt;&gt;&gt; l[3:5] = 3 …</pre></div>
+                </div><!-- /.entry-content -->
+                <a class="readmore" href="/qie-pian.html">Lire la suite...</a>
+        </article></li>
+        
+ 
+        <li><article class="hentry">    
+                <header>
+                        <h1><a href="/namedtuple.html" rel="bookmark" title="Permalien vers «namedtuple»">namedtuple</a></h1>
+                </header>
+                
+                <div class="entry-content" style="max-height: 150px; overflow: hidden">
+                <p>&emsp;&emsp;collections.namedtuple是一个工厂函数,它可以用来构建个一个带字段名的元祖和一个有名字的类，</p>
+<p>这个带名字的类对调试有很大帮助。</p>
+<p>&emsp;&emsp;用namedtuple构建的类的实例和元祖所需内存是一样的，因为字段名都被存在对应的类里，这个实</p>
+<p>例和普通的实例对象比起来也要小一些，因为python不用__dict__存放这些实例的属性。</p>
+<p>&emsp;&emsp;创建一个namedtuple，需要传两个参数，一个是类名，一个是类的各个字段名，后者可是数个字符</p>
+<p>组成的可迭代对象或者是由空格分隔开的字段名组成的字符串。存放在对应字段里的数据要以一段参数</p>
+<p>的形式传入到构造函数中(注意：元祖的构造函数却只接受单一的可迭代对象)。</p>
+<p>&emsp;&emsp;可以通过字段名或者位置来获取一个字段信息。</p>
+<p>&emsp;&emsp;namestuple除了从普通元祖继承来的属性，还有一些专有属性，最有用的是类属性_fields,类方法</p>
+<p>_make(iterable),实例方法_asdict().</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">collections</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;a b c&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">_fields</span>
+<span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">i</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">_make</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">i …</span></pre></div>
+                </div><!-- /.entry-content -->
+                <a class="readmore" href="/namedtuple.html">Lire la suite...</a>
+        </article></li>
+        
+ 
+        <li><article class="hentry">    
+                <header>
+                        <h1><a href="/formatyong-fa.html" rel="bookmark" title="Permalien vers «format用法»">format用法</a></h1>
+                </header>
+                
+                <div class="entry-content" style="max-height: 150px; overflow: hidden">
                 <p>1.通过位置获取参数</p>
 <div class="highlight"><pre><span></span>&gt;&gt;&gt; &#39;{0}, {1}, {2}&#39;.format(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;)
 &#39;a, b, c&#39;
@@ -53,135 +120,10 @@
 &#39;c, b, a&#39;
 &gt;&gt;&gt; &#39;{2}, {1}, {0}&#39;.format(*&#39;abc&#39;)      # unpacking argument sequence
 &#39;c, b, a&#39;
-&gt;&gt;&gt; &#39;{0}{1}{0}&#39;.format(&#39;abra&#39;, &#39;cad&#39;)   # arguments&#39; indices can be repeated
-&#39;abracadabra&#39;
-</pre></div>
-
-
-<p>2.通过名字获取参数</p>
-<div class="highlight"><pre><span></span>&gt;&gt;&gt; &#39;Coordinates: {latitude}, {longitude}&#39;.format(latitude=&#39;37.24N&#39;, longitude=&#39;-115.81W&#39;)
-&#39;Coordinates: 37.24N, -115.81W&#39;
-&gt;&gt;&gt; coord = {&#39;latitude&#39;: &#39;37.24N&#39;, &#39;longitude&#39;: &#39;-115.81W&#39;}
-&gt;&gt;&gt; &#39;Coordinates: {latitude}, {longitude}&#39;.format(**coord)
-&#39;Coordinates: 37.24N, -115.81W&#39;
-</pre></div>
-
-
-<p>3.获取参数的属性</p>
-<div class="highlight"><pre><span></span>&gt;&gt;&gt; c = 3-5j
-&gt;&gt;&gt; (&#39;The complex number {0} is formed from the real part {0.real} &#39;
-...  &#39;and the imaginary part {0.imag}.&#39;).format(c)
-&#39;The complex number (3-5j) is formed from the real part 3.0 and the imaginary part -5.0.&#39;
-&gt;&gt;&gt; class Point:
-...     def __init__(self, x, y):
-...         self.x, self.y = x, y
-...     def __str__(self):
-...         return &#39;Point({self.x}, {self.y})&#39;.format(self=self)
-...
-&gt;&gt;&gt; str(Point(4, 2))
-&#39;Point(4, 2)&#39;
-</pre></div>
-
-
-<p>4.获取参数的所有项</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nt">coord</span> <span class="o">=</span> <span class="o">(</span><span class="nt">3</span><span class="o">,</span> <span class="nt">5</span><span class="o">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;X: {0</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span><span class="s1">};  Y: {0</span><span class="cp">[</span><span class="mi">1</span><span class="cp">]</span><span class="s1">}&#39;</span><span class="p">.</span><span class="nc">format</span><span class="o">(</span><span class="nt">coord</span><span class="o">)</span>
-<span class="s1">&#39;X: 3;  Y: 5&#39;</span>
-</pre></div>
-
-
-<p>5.代替%r和%s</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;repr() shows quotes: {!r}; str() doesn&#39;t: {!s}&quot;</span><span class="p">.</span><span class="nc">format</span><span class="o">(</span><span class="s1">&#39;test1&#39;</span><span class="o">,</span> <span class="s1">&#39;test2&#39;</span><span class="o">)</span>
-<span class="s2">&quot;repr() shows quotes: &#39;test1&#39;; str() doesn&#39;t: test2&quot;</span>
-</pre></div>
-
-
-<p>6.调整内容,指定宽度</p>
-<div class="highlight"><pre><span></span>&gt;&gt;&gt; &#39;{:&lt;30}&#39;.format(&#39;left aligned&#39;)
-&#39;left aligned                  &#39;
-&gt;&gt;&gt; &#39;{:&gt;30}&#39;.format(&#39;right aligned&#39;)
-&#39;                 right aligned&#39;
-&gt;&gt;&gt; &#39;{:^30}&#39;.format(&#39;centered&#39;)
-&#39;           centered           &#39;
-&gt;&gt;&gt; &#39;{:*^30}&#39;.format(&#39;centered&#39;)  # use &#39;*&#39; as a fill char
-&#39;***********centered***********&#39;
-</pre></div>
-
-
-<p>7.代替%+f，%-f和%f,明确符号</p>
-<div class="highlight"><pre><span></span><span class="s s-Atom">&gt;&gt;&gt;</span> <span class="s s-Atom">&#39;{:+f}; {:+f}&#39;</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="mf">3.14</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.14</span><span class="p">)</span>  <span class="s s-Atom">#</span> <span class="s s-Atom">show</span> <span class="s s-Atom">it</span> <span class="s s-Atom">always</span>
-<span class="s s-Atom">&#39;+3.140000; -3.140000&#39;</span>
-<span class="s s-Atom">&gt;&gt;&gt;</span> <span class="s s-Atom">&#39;{: f}; {: f}&#39;</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="mf">3.14</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.14</span><span class="p">)</span>  <span class="s s-Atom">#</span> <span class="s s-Atom">show</span> <span class="s s-Atom">a</span> <span class="s s-Atom">space</span> <span class="s s-Atom">for</span> <span class="s s-Atom">positive</span> <span class="s s-Atom">numbers</span>
-<span class="s s-Atom">&#39; 3.140000; -3.140000&#39;</span>
-<span class="s s-Atom">&gt;&gt;&gt;</span> <span class="s s-Atom">&#39;{:-f}; {:-f}&#39;</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="mf">3.14</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.14</span><span class="p">)</span>  <span class="s s-Atom">#</span> <span class="s s-Atom">show</span> <span class="s s-Atom">only</span> <span class="s s-Atom">the</span> <span class="s s-Atom">minus</span> <span class="s s-Atom">--</span> <span class="s s-Atom">same</span> <span class="s s-Atom">as</span> <span class="s s-Atom">&#39;{:f}; {:f}&#39;</span>
-<span class="s s-Atom">&#39;3.140000; -3.140000&#39;</span>
-</pre></div>
-
-
-<p>8.代替%o，%x，转换成不同进制的值</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="err">#</span> <span class="nt">format</span> <span class="nt">also</span> <span class="nt">supports</span> <span class="nt">binary</span> <span class="nt">numbers</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;int: {0:d};  hex: {0:x};  oct: {0:o};  bin: {0:b}&quot;</span><span class="p">.</span><span class="nc">format</span><span class="o">(</span><span class="nt">42</span><span class="o">)</span>
-<span class="s1">&#39;int: 42;  hex: 2a;  oct: 52;  bin: 101010&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="err">#</span> <span class="nt">with</span> <span class="nt">0x</span><span class="o">,</span> <span class="nt">0o</span><span class="o">,</span> <span class="nt">or</span> <span class="nt">0b</span> <span class="nt">as</span> <span class="nt">prefix</span><span class="o">:</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;int: {0:d};  hex: {0:#x};  oct: {0:#o};  bin: {0:#b}&quot;</span><span class="p">.</span><span class="nc">format</span><span class="o">(</span><span class="nt">42</span><span class="o">)</span>
-<span class="s1">&#39;int: 42;  hex: 0x2a;  oct: 0o52;  bin: 0b101010&#39;</span>
-</pre></div>
-
-
-<p>9.使用，作为千位分隔符</p>
-<div class="highlight"><pre><span></span>&gt;&gt;&gt; &#39;{:,}&#39;.format(1234567890)
-&#39;1,234,567,890&#39;
-</pre></div>
-
-
-<p>10.表示一个百分数</p>
-<div class="highlight"><pre><span></span>&gt;&gt;&gt; points = 19
-&gt;&gt;&gt; total = 22
-&gt;&gt;&gt; &#39;Correct answers: {:.2%}&#39;.format(points/total)
-&#39;Correct answers: 86.36%&#39;
-</pre></div>
-
-
-<p>11.使用特定的类型格式</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">datetime</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">58</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;{:%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-<span class="s1">&#39;2010-07-04 12:15:58&#39;</span>
-</pre></div>
-
-
-<p>12.嵌套参数和更复杂的示例</p>
-<div class="highlight"><pre><span></span>&gt;&gt;&gt; for align, text in zip(&#39;&lt;^&gt;&#39;, [&#39;left&#39;, &#39;center&#39;, &#39;right&#39;]):
-...     &#39;{0:{fill}{align}16}&#39;.format(text, fill=align, align=align)
-...
-&#39;left&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&#39;
-&#39;^^^^^center^^^^^&#39;
-&#39;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;right&#39;
-&gt;&gt;&gt;
-&gt;&gt;&gt; octets = [192, 168, 0, 1]
-&gt;&gt;&gt; &#39;{:02X}{:02X}{:02X}{:02X}&#39;.format(*octets)
-&#39;C0A80001&#39;
-&gt;&gt;&gt; int(_, 16)
-3232235521
-&gt;&gt;&gt;
-&gt;&gt;&gt; width = 5
-&gt;&gt;&gt; for num in range(5,12):
-...     for base in &#39;dXob&#39;:
-...         print(&#39;{0:{width}{base}}&#39;.format(num, base=base, width=width), end=&#39; &#39;)
-...     print()
-...
-    5     5     5   101
-    6     6     6   110
-    7     7     7   111
-    8     8    10  1000
-    9     9    11  1001
-   10     A    12  1010
-   11     B    13  1011
-</pre></div>
-        </article></aside><!-- /#featured -->
-                <h1>Autres articles</h1>
-                <hr />
-                    <ol id="posts-list" class="hfeed">
+&gt;&gt;&gt; &#39;{0}{1}{0}&#39;.format(&#39;abra&#39;, &#39;cad&#39;)   # arguments …</pre></div>
+                </div><!-- /.entry-content -->
+                <a class="readmore" href="/formatyong-fa.html">Lire la suite...</a>
+        </article></li>
         
  
         <li><article class="hentry">    
@@ -189,7 +131,7 @@
                         <h1><a href="/pythonzhong-de-nei-zhi-xu-lie-yi.html" rel="bookmark" title="Permalien vers «python中的内置序列（一）»">python中的内置序列（一）</a></h1>
                 </header>
                 
-                <div class="entry-content">
+                <div class="entry-content" style="max-height: 150px; overflow: hidden">
                 <p>python的序列按存放的数据类型是否相同，可分为：</p>
 <p>容器序列：</p>
 <ul>
@@ -210,8 +152,8 @@
 <ul>
 <li>tuple，str和bytes。</li>
 </ul>
-                <a class="readmore" href="/pythonzhong-de-nei-zhi-xu-lie-yi.html">Lire la suite...</a>
                 </div><!-- /.entry-content -->
+                <a class="readmore" href="/pythonzhong-de-nei-zhi-xu-lie-yi.html">Lire la suite...</a>
         </article></li>
         
  
@@ -220,7 +162,7 @@
                         <h1><a href="/shell-kuai-jie-jian.html" rel="bookmark" title="Permalien vers «shell 快捷键»">shell 快捷键</a></h1>
                 </header>
                 
-                <div class="entry-content">
+                <div class="entry-content" style="max-height: 150px; overflow: hidden">
                 <p>ctrl+a 跳到所在行的开头</p>
 <p>ctrl+e 跳到光标所在行的行尾</p>
 <p>ctrl+l 清屏</p>
@@ -232,8 +174,8 @@
 <p>ctrl+k 清除这一行中光标后的内容</p>
 <p>ctrl+t 交换光标前的最后两个字符</p>
 <p>esc+t 交换光标前的最后两个单词</p>
-                <a class="readmore" href="/shell-kuai-jie-jian.html">Lire la suite...</a>
                 </div><!-- /.entry-content -->
+                <a class="readmore" href="/shell-kuai-jie-jian.html">Lire la suite...</a>
         </article></li>
         
  
@@ -242,7 +184,7 @@
                         <h1><a href="/pythonzhong-__repr__he-__str__.html" rel="bookmark" title="Permalien vers «python中 __repr__和__str__»">python中 __repr__和__str__</a></h1>
                 </header>
                 
-                <div class="entry-content">
+                <div class="entry-content" style="max-height: 150px; overflow: hidden">
                 <p>python对象的一个基本要求就是它得有个合理的字符串表示形式，我们可以通过__repr__ 和__str__来满</p>
 <p>足这个要求，前者方便调试和记录日志，后者是给终端用户看的。</p>
 <p>例如，我们构造一个Person类：</p>
@@ -274,8 +216,8 @@
 
 
 <p>可以看出 …</p>
-                <a class="readmore" href="/pythonzhong-__repr__he-__str__.html">Lire la suite...</a>
                 </div><!-- /.entry-content -->
+                <a class="readmore" href="/pythonzhong-__repr__he-__str__.html">Lire la suite...</a>
         </article></li>
         
  
@@ -284,7 +226,7 @@
                         <h1><a href="/pythonzhong-de-nei-zhi-xu-lie-er.html" rel="bookmark" title="Permalien vers «python中的内置序列（二）»">python中的内置序列（二）</a></h1>
                 </header>
                 
-                <div class="entry-content">
+                <div class="entry-content" style="max-height: 150px; overflow: hidden">
                 <p>列表推导式python2与python3区别</p>
 <p>在python2中：</p>
 <div class="highlight"><pre><span></span>&gt;&gt;&gt; [x for x in range(5)]
@@ -305,8 +247,8 @@
 &gt;&gt;&gt; x
 Traceback (most recent call last):
     File &quot;&lt;pyshell …</pre></div>
-                <a class="readmore" href="/pythonzhong-de-nei-zhi-xu-lie-er.html">Lire la suite...</a>
                 </div><!-- /.entry-content -->
+                <a class="readmore" href="/pythonzhong-de-nei-zhi-xu-lie-er.html">Lire la suite...</a>
         </article></li>
 </ol><!-- /#posts-list -->
 </section><!-- /#content -->
