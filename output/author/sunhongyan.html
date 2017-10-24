@@ -33,7 +33,7 @@
         
      <section id="content" class="body">
         <aside id="featured"><article>
-                <h1 class="entry-title"><a href="/dui-xu-lie-shi-yong-huo.html">对序列使用+或*</a></h1> 
+                <h1 class="entry-title"><a href="/chang-jian-de-ying-she-fang-fa.html">常见的映射方法</a></h1> 
                 <footer class="post-info">
                         <abbr class="published" title="2017-06-24T20:30:00+08:00">
                                 Publié le 24/06/2017 &agrave; 20:30
@@ -44,11 +44,125 @@
                         </address>
                 <p>Dans <a href="/category/python.html">python</a>. </p>
 </p>                </footer><!-- /.post-info -->
-                
+                <p>常见的映射类型有dict，defaultdict，OrderDict。</p>
+<p>dict中有个setdefault方法，用于处理找不到的键。</p>
+<div class="highlight"><pre><span></span>    <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">k</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="p">[])</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="p">{</span><span class="s1">&#39;k&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]}</span>
+</pre></div>
+
+
+<p>defaultdict处理找不到键的一个选择。</p>
+<div class="highlight"><pre><span></span>    <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="p">{})</span>
+
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;k&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]})</span>
+
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">]</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>用来生成默认值的可调用对象存放在default_factory这个实例属性中。</p>
+<div class="highlight"><pre><span></span>&gt;&gt;&gt; d.default_factory()
+&gt;&gt;&gt; []
+</pre></div>
+
+
+<p>collections.defaultdict里的defautl_factory只会在__getitem__里被调用，在其他方法里完全不发挥</p>
+<p>作用。</p>
+<div class="highlight"><pre><span></span>d = defaultdict(list)
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>    <span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="s1">&#39;k1&#39;</span><span class="p">]</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="p">[]</span>
+
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;k1&#39;</span><span class="p">:</span> <span class="p">[]})</span>
+
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;k2&#39;</span><span class="p">)</span>
+
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;k1&#39;</span><span class="p">:</span> <span class="p">[]})</span>
+</pre></div>
+
+
+<p>所有映射类型再找不到映射类型时都会调用__missing__这个方法，dict并没有定义该方法，所以如果继</p>
+<p>承了dict，还想实现在__getitem__中找不到键的时候给一个默认值，要自己定义__missing__方法，</p>
+<p>__missing__只会被__getitem__调用，提供__missing__方法对get和__contains__这些方法没有影响。</p>
+<p>collections.OrderDict：这个类型在添加键的时候总会保持顺序，因此键的迭代顺序总是一致的，</p>
+<p>OrderDict的popitem方法默认删除并返回字典里的最后一个元素，popitem里有个last参数如果last=</p>
+<p>False，会删除并返回第一个被添加进去的元素。</p>
+<p>collections.Chainmap()</p>
+<div class="highlight"><pre><span></span>    <span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">builtins</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">pylookup</span> <span class="o">=</span> <span class="n">ChainMap</span><span class="p">(</span><span class="nb">locals</span><span class="p">(),</span> <span class="nb">globals</span><span class="p">(),</span> <span class="nb">vars</span><span class="p">(</span><span class="n">builtins</span><span class="p">))</span>
+</pre></div>
+
+
+<p>collections.Counter()</p>
+<div class="highlight"><pre><span></span>    <span class="n">In</span> <span class="p">[</span><span class="mi">80</span><span class="p">]:</span> <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">81</span><span class="p">]:</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="s1">&#39;qqqwwweeeqqqqq&#39;</span><span class="p">)</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">82</span><span class="p">]:</span> <span class="n">c</span>
+    <span class="n">Out</span><span class="p">[</span><span class="mi">82</span><span class="p">]:</span> <span class="n">Counter</span><span class="p">({</span><span class="s1">&#39;e&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">83</span><span class="p">]:</span> <span class="n">c</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s1">&#39;sss&#39;</span><span class="p">)</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">84</span><span class="p">]:</span> <span class="n">c</span>
+    <span class="n">Out</span><span class="p">[</span><span class="mi">84</span><span class="p">]:</span> <span class="n">Counter</span><span class="p">({</span><span class="s1">&#39;e&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">85</span><span class="p">]:</span> <span class="n">c</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">Out</span><span class="p">[</span><span class="mi">85</span><span class="p">]:</span> <span class="p">[(</span><span class="s1">&#39;q&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+</pre></div>
         </article></aside><!-- /#featured -->
                 <h1>Autres articles</h1>
                 <hr />
                     <ol id="posts-list" class="hfeed">
+        
+ 
+        <li><article class="hentry">    
+                <header>
+                        <h1><a href="/dui-xu-lie-shi-yong-huo.html" rel="bookmark" title="Permalien vers «对序列使用+或*»">对序列使用+或*</a></h1>
+                </header>
+                
+                <div class="entry-content" style="max-height: 169px; overflow: hidden">
+                <div class="highlight"><pre><span></span>    <span class="n">In</span> <span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="n">l</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;-&#39;</span><span class="p">]]</span> <span class="o">*</span> <span class="mi">3</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="n">l</span>
+    <span class="n">Out</span><span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="p">[[</span><span class="s1">&#39;-&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;-&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;-&#39;</span><span class="p">]]</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="n">l</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">12</span><span class="p">]:</span> <span class="n">l</span>
+    <span class="n">Out</span><span class="p">[</span><span class="mi">12</span><span class="p">]:</span> <span class="p">[[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+</pre></div>
+
+
+<p>出现这种现象的原因是[['-']] * 3创建的['-']都是指向同一个列表的引用。</p>
+<p>可以使用列表推导式达到其他列表不改变的目的。</p>
+<div class="highlight"><pre><span></span>    <span class="n">In</span> <span class="p">[</span><span class="mi">13</span><span class="p">]:</span> <span class="n">l</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;-&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="n">l</span>
+    <span class="n">Out</span><span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="p">[[</span><span class="s1">&#39;-&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;-&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;-&#39;</span><span class="p">]]</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="n">l</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="n">l</span>
+    <span class="n">Out …</span></pre></div>
+                </div><!-- /.entry-content -->
+                <a class="readmore" href="/dui-xu-lie-shi-yong-huo.html">Lire la suite...</a>
+        </article></li>
         
  
         <li><article class="hentry">    
@@ -74,6 +188,58 @@
 <div class="highlight"><pre><span></span>&gt;&gt;&gt; l[3:5] = 3 …</pre></div>
                 </div><!-- /.entry-content -->
                 <a class="readmore" href="/qie-pian.html">Lire la suite...</a>
+        </article></li>
+        
+ 
+        <li><article class="hentry">    
+                <header>
+                        <h1><a href="/xu-lie-zeng-liang-fu-zhi.html" rel="bookmark" title="Permalien vers «序列增量赋值»">序列增量赋值</a></h1>
+                </header>
+                
+                <div class="entry-content" style="max-height: 169px; overflow: hidden">
+                <p>&emsp;&emsp;+=背后的特殊方法是__iadd__(用于就地加法)，如果一个类没有这个方法，就会调用__add__。</p>
+<p>a += b如果a没有实现__iadd__方法，a += b 就和a = a + b一样。*=和+=用法一样。</p>
+<div class="highlight"><pre><span></span>    <span class="n">In</span> <span class="p">[</span><span class="mi">19</span><span class="p">]:</span> <span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">20</span><span class="p">]:</span> <span class="nb">id</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+    <span class="n">Out</span><span class="p">[</span><span class="mi">20</span><span class="p">]:</span> <span class="mi">4537296648</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">21</span><span class="p">]:</span> <span class="n">l1</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="n">l1</span>
+    <span class="n">Out</span><span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">25</span><span class="p">]:</span> <span class="nb">id</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+    <span class="n">Out</span><span class="p">[</span><span class="mi">25</span><span class="p">]:</span> <span class="mi">4537296648</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">23 …</span></pre></div>
+                </div><!-- /.entry-content -->
+                <a class="readmore" href="/xu-lie-zeng-liang-fu-zhi.html">Lire la suite...</a>
+        </article></li>
+        
+ 
+        <li><article class="hentry">    
+                <header>
+                        <h1><a href="/you-guan-dict.html" rel="bookmark" title="Permalien vers «有关dict»">有关dict</a></h1>
+                </header>
+                
+                <div class="entry-content" style="max-height: 169px; overflow: hidden">
+                <p>1.键必须是可散列的。</p>
+<p>&emsp;&emsp;一个可散列的对象必须满足：</p>
+<p>&emsp;&emsp;（1）支持hash()函数，并且通过hash()所得到的散列值是不变的。</p>
+<p>&emsp;&emsp;（2）支持__eq__()方法来检测相等性。</p>
+<p>&emsp;&emsp;（3）若a == b为真，则hash（a）== hash（b）也为真。</p>
+<p>&emsp;&emsp;所有由用户自定义的对象默认都是可散列的。因为她们的散列值由id()获取，而且她们都不相等。</p>
+<p>2.字典在内存上开销巨大。</p>
+<p>&emsp;&emsp;如果数据不过大，不要空间优化，因为优化往往是可维护的对立面。</p>
+<p>3.键查询很快。</p>
+<p>4.键的次序取决于添加顺序。</p>
+<p>5.往字典里添加新键可能会改变已有键的顺序。</p>
+<p>&emsp;&emsp;迭代一个字典的所有键过程中同时对字典的键进行修改，那么这个循环很可能会跳过一些键，甚至</p>
+<p>跳过那些字典中已有的键。</p>
+<p>&emsp;&emsp;在python3中.keys(),.items(),.values()返回的都是字典视图，可以实时反馈字典的变化。</p>
+                </div><!-- /.entry-content -->
+                <a class="readmore" href="/you-guan-dict.html">Lire la suite...</a>
         </article></li>
         
  
