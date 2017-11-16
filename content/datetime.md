@@ -74,3 +74,4 @@ datetime加减
     In [24]: d + timedelta(days=2, hours=12)
     Out[24]: datetime.datetime(2015, 1, 4, 21, 10, 20)
 ```
+

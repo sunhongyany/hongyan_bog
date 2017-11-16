@@ -35,5 +35,3 @@ __all__是一个string元素组成的list变量，定义了当你使用 from <mo
 
     NameError: name 'c' is not defined
 ```
-
-
