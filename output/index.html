@@ -33,10 +33,10 @@
         
      <section id="content" class="body">
         <aside id="featured"><article>
-                <h1 class="entry-title"><a href="/chang-jian-de-ying-she-fang-fa.html">常见的映射方法</a></h1> 
+                <h1 class="entry-title"><a href="/datetime.html">datetime</a></h1> 
                 <footer class="post-info">
-                        <abbr class="published" title="2017-06-24T20:30:00+08:00">
-                                Publié le 24/06/2017 &agrave; 20:30
+                        <abbr class="published" title="2017-06-24T21:30:00+08:00">
+                                Publié le 24/06/2017 &agrave; 21:30
                         </abbr>
 
                         <address class="vcard author">
@@ -44,6 +44,107 @@
                         </address>
                 <p>Dans <a href="/category/python.html">python</a>. </p>
 </p>                </footer><!-- /.post-info -->
+                <p>&emsp;&emsp;datetime是Python处理日期和时间的标准库。</p>
+<p>获取当前日期和时间</p>
+<p>我们先看如何获取当前日期和时间：</p>
+<div class="highlight"><pre><span></span>    <span class="n">In</span> <span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">12</span><span class="p">]:</span> <span class="n">now</span>
+    <span class="n">Out</span><span class="p">[</span><span class="mi">12</span><span class="p">]:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">806565</span><span class="p">)</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">13</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">now</span><span class="p">))</span>
+    <span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="s1">&#39;&gt;</span>
+</pre></div>
+
+
+<p>&emsp;&emsp;注意到datetime是模块，datetime模块还包含一个datetime类，通过from datetime import datetime</p>
+<p>导入的才是datetime这个类。</p>
+<p>&emsp;&emsp;如果仅导入import datetime，则必须引用全名datetime.datetime。</p>
+<p>&emsp;&emsp;datetime.now()返回当前日期和时间，其类型是datetime</p>
+<p>str转换为datetime</p>
+<p>&emsp;&emsp;很多时候，用户输入的日期和时间是字符串，要处理日期和时间，首先必须把str转换为datetime。</p>
+<p>转换方法是通过datetime.strptime()实现，需要一个日期和时间的格式化字符串：</p>
+<div class="highlight"><pre><span></span>    <span class="n">In</span> <span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;2017-05-02 09:10:20&#39;</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">17</span><span class="p">]:</span> <span class="n">d</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">18</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+    <span class="mi">2017</span><span class="o">-</span><span class="mo">05</span><span class="o">-</span><span class="mo">02</span> <span class="mi">09</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">20</span>
+</pre></div>
+
+
+<p>datetime转换为str</p>
+<p>&emsp;&emsp;如果已经有了datetime对象，要把它格式化为字符串显示给用户，就需要转换为str，转换方法是通</p>
+<p>过strftime()实现的，同样需要一个日期和时间的格式化字符串：</p>
+<div class="highlight"><pre><span></span>    <span class="n">In</span> <span class="p">[</span><span class="mi">20</span><span class="p">]:</span>  <span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%a, %b </span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">))</span>
+    <span class="n">Fri</span><span class="p">,</span> <span class="n">Jan</span> <span class="mo">02</span> <span class="mi">09</span><span class="p">:</span><span class="mi">10</span>
+</pre></div>
+
+
+<p>datetime加减</p>
+<p>&emsp;&emsp;对日期和时间进行加减实际上就是把datetime往后或往前计算，得到新的datetime。加减可以直接用</p>
+<p>+和-运算符，不过需要导入timedelta这个类：</p>
+<div class="highlight"><pre><span></span>    <span class="n">In</span> <span class="p">[</span><span class="mi">21</span><span class="p">]:</span> <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="n">d</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">Out</span><span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">23</span><span class="p">]:</span> <span class="n">d</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">Out</span><span class="p">[</span><span class="mi">23</span><span class="p">]:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">24</span><span class="p">]:</span> <span class="n">d</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">hours</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">Out</span><span class="p">[</span><span class="mi">24</span><span class="p">]:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+</pre></div>
+        </article></aside><!-- /#featured -->
+                <h1>Autres articles</h1>
+                <hr />
+                    <ol id="posts-list" class="hfeed">
+        
+ 
+        <li><article class="hentry">    
+                <header>
+                        <h1><a href="/__all__de-zuo-yong.html" rel="bookmark" title="Permalien vers «__all__的作用»">__all__的作用</a></h1>
+                </header>
+                
+                <div class="entry-content" style="max-height: 169px; overflow: hidden">
+                <p>__all__是一个string元素组成的list变量，定义了当你使用 from <module> import * 导入某个模块的时候能导出的符</p>
+<p>号（这里代表变量，函数，类等）。</p>
+<p>举个例子，在all_test.py中，我们明确导出符号a，b。</p>
+<div class="highlight"><pre><span></span>    <span class="mi">1</span>   <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span>
+      <span class="mi">1</span>
+      <span class="mi">2</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+      <span class="mi">3</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+      <span class="mi">4</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+
+
+<p>在ipython中我们输入：</p>
+<div class="highlight"><pre><span></span>    <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">from</span> <span class="nn">all_test</span> <span class="kn">import</span> <span class="o">*</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="mi">1</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="mi">2</span>
+
+    <span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+    <span class="o">---------------------------------------------------------------------------</span>
+    <span class="ne">NameError</span>                                 <span class="n">Traceback …</span></pre></div>
+                </div><!-- /.entry-content -->
+                <a class="readmore" href="/__all__de-zuo-yong.html">Lire la suite...</a>
+        </article></li>
+        
+ 
+        <li><article class="hentry">    
+                <header>
+                        <h1><a href="/chang-jian-de-ying-she-fang-fa.html" rel="bookmark" title="Permalien vers «常见的映射方法»">常见的映射方法</a></h1>
+                </header>
+                
+                <div class="entry-content" style="max-height: 169px; overflow: hidden">
                 <p>常见的映射类型有dict，defaultdict，OrderDict。</p>
 <p>dict中有个setdefault方法，用于处理找不到的键。</p>
 <div class="highlight"><pre><span></span>    <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
@@ -84,51 +185,10 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>    <span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="s1">&#39;k1&#39;</span><span class="p">]</span>
-    <span class="o">&gt;&gt;&gt;</span> <span class="p">[]</span>
-
-    <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span>
-    <span class="o">&gt;&gt;&gt;</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;k1&#39;</span><span class="p">:</span> <span class="p">[]})</span>
-
-    <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;k2&#39;</span><span class="p">)</span>
-
-    <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span>
-    <span class="o">&gt;&gt;&gt;</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;k1&#39;</span><span class="p">:</span> <span class="p">[]})</span>
-</pre></div>
-
-
-<p>所有映射类型再找不到映射类型时都会调用__missing__这个方法，dict并没有定义该方法，所以如果继</p>
-<p>承了dict，还想实现在__getitem__中找不到键的时候给一个默认值，要自己定义__missing__方法，</p>
-<p>__missing__只会被__getitem__调用，提供__missing__方法对get和__contains__这些方法没有影响。</p>
-<p>collections.OrderDict：这个类型在添加键的时候总会保持顺序，因此键的迭代顺序总是一致的，</p>
-<p>OrderDict的popitem方法默认删除并返回字典里的最后一个元素，popitem里有个last参数如果last=</p>
-<p>False，会删除并返回第一个被添加进去的元素。</p>
-<p>collections.Chainmap()</p>
-<div class="highlight"><pre><span></span>    <span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">builtins</span>
-    <span class="o">&gt;&gt;&gt;</span> <span class="n">pylookup</span> <span class="o">=</span> <span class="n">ChainMap</span><span class="p">(</span><span class="nb">locals</span><span class="p">(),</span> <span class="nb">globals</span><span class="p">(),</span> <span class="nb">vars</span><span class="p">(</span><span class="n">builtins</span><span class="p">))</span>
-</pre></div>
-
-
-<p>collections.Counter()</p>
-<div class="highlight"><pre><span></span>    <span class="n">In</span> <span class="p">[</span><span class="mi">80</span><span class="p">]:</span> <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
-
-    <span class="n">In</span> <span class="p">[</span><span class="mi">81</span><span class="p">]:</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="s1">&#39;qqqwwweeeqqqqq&#39;</span><span class="p">)</span>
-
-    <span class="n">In</span> <span class="p">[</span><span class="mi">82</span><span class="p">]:</span> <span class="n">c</span>
-    <span class="n">Out</span><span class="p">[</span><span class="mi">82</span><span class="p">]:</span> <span class="n">Counter</span><span class="p">({</span><span class="s1">&#39;e&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span>
-
-    <span class="n">In</span> <span class="p">[</span><span class="mi">83</span><span class="p">]:</span> <span class="n">c</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s1">&#39;sss&#39;</span><span class="p">)</span>
-
-    <span class="n">In</span> <span class="p">[</span><span class="mi">84</span><span class="p">]:</span> <span class="n">c</span>
-    <span class="n">Out</span><span class="p">[</span><span class="mi">84</span><span class="p">]:</span> <span class="n">Counter</span><span class="p">({</span><span class="s1">&#39;e&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span>
-
-    <span class="n">In</span> <span class="p">[</span><span class="mi">85</span><span class="p">]:</span> <span class="n">c</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-    <span class="n">Out</span><span class="p">[</span><span class="mi">85</span><span class="p">]:</span> <span class="p">[(</span><span class="s1">&#39;q&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
-</pre></div>
-        </article></aside><!-- /#featured -->
-                <h1>Autres articles</h1>
-                <hr />
-                    <ol id="posts-list" class="hfeed">
+<div class="highlight"><pre><span></span>    <span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="s1">&#39;k1 …</span></pre></div>
+                </div><!-- /.entry-content -->
+                <a class="readmore" href="/chang-jian-de-ying-she-fang-fa.html">Lire la suite...</a>
+        </article></li>
         
  
         <li><article class="hentry">    
@@ -167,6 +227,40 @@
  
         <li><article class="hentry">    
                 <header>
+                        <h1><a href="/itemgetteryu-attrgetter.html" rel="bookmark" title="Permalien vers «itemgetter与attrgetter»">itemgetter与attrgetter</a></h1>
+                </header>
+                
+                <div class="entry-content" style="max-height: 169px; overflow: hidden">
+                <p>itemgetter的常见用途：根据元祖的某个字段给元祖列表排序。</p>
+<p>'''python
+    In [1]: from operator import itemgetter</p>
+<div class="highlight"><pre><span></span>In [2]: args = [(2, &#39;b&#39;, &#39;123&#39;), (1, &quot;a&quot;, &quot;123&quot;), (3, &quot;c&quot;, &quot;345&quot;)]
+
+In [3]: for i in sorted(args, key=itemgetter(1)):
+
+...:     print(i)
+
+...:
+
+(1, &#39;a&#39;, &#39;123&#39;)
+
+(2, &#39;b&#39;, &#39;123&#39;)
+
+(3, &#39;c&#39;, &#39;345&#39;)
+</pre></div>
+
+
+<p>'''</p>
+<p>如果把多个参数传给itemgetter，他构建的函数会返回提取的值构成元祖。</p>
+<p>'''python
+    In [86]: d = itemgetter(1 …</p>
+                </div><!-- /.entry-content -->
+                <a class="readmore" href="/itemgetteryu-attrgetter.html">Lire la suite...</a>
+        </article></li>
+        
+ 
+        <li><article class="hentry">    
+                <header>
                         <h1><a href="/qie-pian.html" rel="bookmark" title="Permalien vers «切片»">切片</a></h1>
                 </header>
                 
@@ -188,6 +282,38 @@
 <div class="highlight"><pre><span></span>&gt;&gt;&gt; l[3:5] = 3 …</pre></div>
                 </div><!-- /.entry-content -->
                 <a class="readmore" href="/qie-pian.html">Lire la suite...</a>
+        </article></li>
+        
+ 
+        <li><article class="hentry">    
+                <header>
+                        <h1><a href="/sheng-cheng-yi-ge-huo-duo-ge-htmlbiao-qian.html" rel="bookmark" title="Permalien vers «生成一个或多个HTML标签»">生成一个或多个HTML标签</a></h1>
+                </header>
+                
+                <div class="entry-content" style="max-height: 169px; overflow: hidden">
+                <div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="k">def</span> <span class="nf">tag</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">content</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+
+   <span class="o">...</span><span class="p">:</span>     <span class="s2">&quot;&quot;&quot;生成一个或多个HTML标签&quot;&quot;&quot;</span>
+
+   <span class="o">...</span><span class="p">:</span>     <span class="k">if</span> <span class="bp">cls</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+
+   <span class="o">...</span><span class="p">:</span>         <span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">cls</span>
+
+   <span class="o">...</span><span class="p">:</span>     <span class="k">if</span> <span class="n">attrs</span><span class="p">:</span>
+
+   <span class="o">...</span><span class="p">:</span>         <span class="n">attr_str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39; </span><span class="si">%s</span><span class="s1">=&quot;</span><span class="si">%s</span><span class="s1">&quot;&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                    <span class="n">attr</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">attr</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">attrs</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
+
+   <span class="o">...</span><span class="p">:</span>     <span class="k">else</span><span class="p">:</span>
+
+   <span class="o">...</span><span class="p">:</span>         <span class="n">attr_str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+   <span class="o">...</span><span class="p">:</span>     <span class="k">if</span> <span class="n">content</span><span class="p">:</span>
+
+   <span class="o">...</span><span class="p">:</span>         <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;&lt;</span><span class="si">%s%s</span><span class="s1">&gt;</span><span class="si">%s</span><span class="s1">&lt;/</span><span class="si">%s</span><span class="s1">&gt;&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                    <span class="n">name</span><span class="p">,</span> <span class="n">attr_str</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">c …</span></pre></div>
+                </div><!-- /.entry-content -->
+                <a class="readmore" href="/sheng-cheng-yi-ge-huo-duo-ge-htmlbiao-qian.html">Lire la suite...</a>
         </article></li>
         
  
