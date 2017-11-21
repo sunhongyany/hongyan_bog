@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>python中的内置序列（一）</title>
+        <title>del和垃圾回收</title>
         <link rel="icon" href="/theme/images/icons/application_file_python_128px_6585_easyicon.net.ico" type="text/css" />
         <meta charset="utf-8" />
         <link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
@@ -31,35 +31,23 @@
 
 <section id="content" class="body">
 <article>
-        <header> <h1 class="entry-title"><a href="pythonzhong-de-nei-zhi-xu-lie-yi.html"
-        rel="bookmark" title="Permalink to python中的内置序列（一）">python中的内置序列（一）</a></h1>  </header>
+        <header> <h1 class="entry-title"><a href="delhe-la-ji-hui-shou.html"
+        rel="bookmark" title="Permalink to del和垃圾回收">del和垃圾回收</a></h1>  </header>
         <div class="entry-content">
-        <p>python的序列按存放的数据类型是否相同，可分为：</p>
-<p>容器序列：</p>
-<ul>
-<li>tuple，list，collections.queue这些序列可以存放的不同数据类型。</li>
-</ul>
-<p>扁平序列：</p>
-<ul>
-<li>str，bytes，bytearry，memoryview和array.array这些序列只能容纳一种类型。</li>
-</ul>
-<p>容器序列存放的是它们所包含的任意类型对象的引用，而扁平序列存放的是值不是引用。扁平序列是一</p>
-<p>段连续的内存空间，扁平序列更加紧凑，但他只能存放诸如字符，数值和字节这种基础类型。</p>
-<p>还可按照能否被修改来分类：</p>
-<p>可变序列：</p>
-<ul>
-<li>list，bytearray，array.array，collections.queue和memoryview。</li>
-</ul>
-<p>不可变序列：</p>
-<ul>
-<li>tuple，str和bytes。</li>
-</ul>
+        <p>del语句删除名称而不是对象，del命令可能会导致对象被当作垃圾回收，但仅当删除的变量保存的是引</p>
+<p>用对象的最后一个引用，或者无法得到对象时，重新绑定也可能导致对象的引用归零，导致对象被销</p>
+<p>毁。</p>
+<p>如果两个对象相互引用，当它们的引用只存在二者之间时，垃圾回收程序会判定它们都无法获取，进而</p>
+<p>将它们消灭。</p>
+<p>在Cpython中垃圾回收使用的主要算法是引用计数，实际上每个对象都会统计有多少个引用指向自己，</p>
+<p>当引用计数归零时，对象立即被销毁，Cpython会在对象上调用__del__方法（如果定义了），然后释放</p>
+<p>分配给对象的内存。Cpython2.0增加了分代回收方法，用于检测引用循环中涉及的对象组。</p>
         </div><!-- /.entry-content -->
 
 </article>
 <footer class="post-info">
-        <abbr class="published" title="2017-06-03T20:20:00+08:00">
-            Publié le 星期六 03 六月 2017 &agrave; 20:20
+        <abbr class="published" title="2017-06-28T20:30:00+08:00">
+            Publié le 星期三 28 六月 2017 &agrave; 20:30
         </abbr>
         <address class="vcard author">
                 Par <a class="url fn" href="#">sunhongyan</a>

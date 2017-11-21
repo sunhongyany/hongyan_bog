@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>git基础</title>
+        <link rel="icon" href="/theme/images/icons/application_file_python_128px_6585_easyicon.net.ico" type="text/css" />
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
+        <link href="/" type="application/atom+xml" rel="alternate" title="Stay hungry, stay foolish Flux ATOM" />
+
+
+        <!--[if IE]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="/css/ie.css"/>
+                <script src="/js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="/css/ie6.css"/><![endif]-->
+
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/index.html">Stay hungry, stay foolish </a></h1>
+                <nav><ul>
+                <li><a href="/index.html">Accueil</a></li>
+                <li><a href="/archives.html">Archives</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+<section id="content" class="body">
+<article>
+        <header> <h1 class="entry-title"><a href="gitji-chu.html"
+        rel="bookmark" title="Permalink to git基础">git基础</a></h1>  </header>
+        <div class="entry-content">
+        <h3>获取git仓库</h3>
+<p>有两种取得git仓库的方法：</p>
+<ol>
+<li>
+<p>在现有目录中初始化仓库  git init</p>
+</li>
+<li>
+<p>克隆现有的仓库  git clone [url]</p>
+</li>
+</ol>
+<h3>检查当前文件的状态</h3>
+<p>git status</p>
+<h3>跟踪新文件</h3>
+<p>git add <new_file></p>
+<h3>暂存已修改的文件</h3>
+<p>git add <modified_file></p>
+<p>git add 是个多功能命令，可以用它开始跟踪新文件，或者把已跟踪的文件放在暂存区，还能用于合并时</p>
+<p>把有冲突的文件标记为已解决状态。</p>
+<h3>忽略文件</h3>
+<p>一般我们总会有些文件无需纳入 Git 的管理，也不希望它们总出现在未跟踪文件列表。通常都是些自动</p>
+<p>生成的文 件，比如日志文件，或者编译过程中创建的临时文件等。在这种情况下，我们可以创建一个名</p>
+<p>为 .gitignore 的文件，列出要忽略的文件模式。</p>
+<p>文件 .gitignore 的格式规范如下:</p>
+<p>• 所有空行或者以 # 开头的行都会被 Git 忽略。 </p>
+<p>• 可以使用标准的 glob 模式匹配。</p>
+<p>• 匹配模式可以以(/)开头防止递归。</p>
+<p>• 匹配模式可以以(/)结尾指定目录。</p>
+<p>• 要忽略指定模式以外的文件或目录，可以在模式前加上惊叹号(!)取反。</p>
+<p>所谓的 glob 模式是指 shell 所使用的简化了的正则表达式。</p>
+<h3>查看已暂存和未暂存的修改</h3>
+<p>git diff</p>
+<p>此命令比较的是工作目录中当前文件和暂存区域快照之间的差异，也就是修改之后还没有暂存起来的变</p>
+<p>化内容。</p>
+<p>若要查看已暂存的将要添加到下次提交里的内容，可以用 git diff --cached 命令。</p>
+<h3>提交更新</h3>
+<p>git commit</p>
+<p>另外，你也可以在 commit 命令后添加 -m 选项，将提交信息与命令放在同一行。</p>
+<p>git commit -m'提交信息'</p>
+<h3>移除文件</h3>
+<p>要从 Git 中移除某个文件，就必须要从已跟踪文件清单中移除(确切地说，是从暂存区域移除)，然后</p>
+<p>提交。可 以用git rm命令完成此项工作，并连带从工作目录中删除指定的文件，这样以后就不会出现</p>
+<p>在未跟踪文件清单中了。</p>
+<p>下一次提交时，该文件就不再纳入版本管理了。如果删除之前修改过并且已经放到暂存区域的话，则必</p>
+<p>须要用强 制删除选项 -f(译注:即 force 的首字母)。这是一种安全特性，用于防止误删还没有添加到</p>
+<p>快照的数据，这 样的数据不能被 Git 恢复。</p>
+<p>另外一种情况是，我们想把文件从 Git 仓库中删除(亦即从暂存区域移除)，但仍然希望保留在当前工作</p>
+<p>目录中。换句话说，你想让文件保留在磁盘，但是并不想让 Git 继续跟踪。当你忘记添加 .gitignore 文</p>
+<p>件，不小心把一个很大的日志文件或一堆 .a 这样的编译生成文件添加到暂存区时，这一做法尤其有用。</p>
+<p>为达到这一目 的，使用 --cached 选项:</p>
+<p>git rm --cached <file></p>
+<h3>移动文件</h3>
+<p>git mv file_from file_to</p>
+<h3>查看提交历史</h3>
+<p>git log</p>
+<p>默认不用任何参数的话，git log会按提交时间列出所有的更新，最近的更新排在最上面。</p>
+<h3>撤消操作</h3>
+<p>git commit --amend</p>
+<h3>查看远程仓库</h3>
+<p>git remote</p>
+<p>你也可以指定选项 -v，会显示需要读写远程仓库使用的 Git 保存的简写与其对应的 URL。</p>
+<h3>添加远程仓库</h3>
+<p>git remote add <shortname> <url></p>
+<h3>从远程仓库中抓取与拉取</h3>
+<p>git fetch [remote-name]</p>
+<h3>推送到远程仓库</h3>
+<p>git push [remote-name] [branch- name]</p>
+<h3>查看远程仓库</h3>
+<p>git remote show [remote-name]</p>
+<h3>远程仓库的移除与重命名</h3>
+<p>如果想要重命名引用的名字可以运行git remote rename去修改一个远程仓库的简写名。例如，想要将pb</p>
+<p>重命名为paul，可以用git remote rename这样做:</p>
+<p>$ git remote rename pb paul</p>
+<p>$ git remote</p>
+<p>origin</p>
+<p>paul</p>
+<p>值得注意的是这同样也会修改你的远程分支名字。那些过去引用 pb/master 的现在会引用 paul/master。</p>
+<p>移除远程仓库</p>
+<p>git remote rm 仓库名</p>
+<h3>列出标签</h3>
+<p>git tag</p>
+<h3>创建标签</h3>
+<p>Git 使用两种主要类型的标签:轻量标签(lightweight)与附注标签(annotated)。</p>
+<p>一个轻量标签很像一个不会改变的分支 - 它只是一个特定提交的引用。</p>
+<p>然而，附注标签是存储在 Git 数据库中的一个完整对象。它们是可以被校验的;其中包含打标签者的名</p>
+<p>字、电子邮件地址、日期时间;还有一个标签信息;并且可以使用 GNU Privacy Guard (GPG)签名与验</p>
+<p>证。通常建议创建附注标签，这样你可以拥有以上所有信息;但是如果你只是想用一个临时的 标签，或</p>
+<p>者因为某些原因不想要保存那些信息，轻量标签也是可用的。</p>
+<p>附注标签</p>
+<p>在 Git 中创建一个附注标签是很简单的。最简单的方式是当你在运行 tag 命令时指定 -a 选项:</p>
+<p>$ git tag -a v1.4 -m 'my version 1.4'</p>
+<p>$ git tag</p>
+<p>v0.1</p>
+<p>v1.3</p>
+<p>v1.4</p>
+<p>-m 选项指定了一条将会存储在标签中的信息。如果没有为附注标签指定一条信息，Git 会运行编辑器要</p>
+<p>求你输入信息。</p>
+<p>通过使用git show命令可以看到标签信息与对应的提交信息.</p>
+<p>轻量标签</p>
+<p>另一种给提交打标签的方式是使用轻量标签。轻量标签本质上是将提交校验和存储到一个文件中 - 没有</p>
+<p>保存任何 其他信息。创建轻量标签，不需要使用 -a、-s 或 -m 选项，只需要提供标签名字:</p>
+<p>$ git tag v1.4-lw</p>
+<p>$ git tag</p>
+<p>v0.1</p>
+<p>v1.3</p>
+<p>v1.4</p>
+<p>v1.4-lw</p>
+<p>后期打标签 </p>
+<p>你也可以对过去的提交打标签。假设提交历史是这样的:</p>
+<p>$ git log --pretty=oneline</p>
+<p>4682c3261057305bdd616e23b64b0857d832627b added a todo file</p>
+<p>166ae0c4d3f420721acbb115cc33848dfcc2121a started write support</p>
+<p>9fceb02d0ae598e95dc970b74767f19372d61af8 updated rakefile</p>
+<p>964f16d36dfccde844893cac5b347e7b3d44abbc commit the todo</p>
+<p>8a5cbc430f1a9c3d00faaeffd07798508422908a updated readme</p>
+<p>现在，假设在 v1.2 时你忘记给项目打标签，也就是在 “updated rakefile” 提交。你可以在之后补上标</p>
+<p>签。要在那个提交上打标签，你需要在命令的末尾指定提交的校验和(或部分校验和):</p>
+<p>$ git tag -a v1.2 9fceb02</p>
+<p>共享标签</p>
+<p>默认情况下，git push命令并不会传送标签到远程仓库服务器上。在创建完标签后你必须显式地推送标</p>
+<p>签到共享服务器上。这个过程就像共享远程分支一样-你可以运行git push origin [tagname]。</p>
+<p>如果想要一次性推送很多标签，也可以使用带有--tags选项的git push命令。这将会把所有不在远程仓库</p>
+<p>服务器上的标签全部传送到那里。</p>
+<p>git push origin --tags</p>
+<h3>Git 别名</h3>
+<p>Git 并不会在你输入部分命令时自动推断出你想要的命令。如果不想每次都输入完整的 Git 命令，可以通</p>
+<p>过git config 文件来轻松地为每一个命令设置一个别名。这里有一些例子你可以试试:</p>
+<p>$ git config --global alias.co checkout</p>
+<p>$ git config --global alias.br branch</p>
+<p>$ git config --global alias.ci commit</p>
+<p>$ git config --global alias.st status</p>
+        </div><!-- /.entry-content -->
+
+</article>
+<footer class="post-info">
+        <abbr class="published" title="2017-06-25T20:30:00+08:00">
+            Publié le 星期日 25 六月 2017 &agrave; 20:30
+        </abbr>
+        <address class="vcard author">
+                Par <a class="url fn" href="#">sunhongyan</a>
+        </address>
+        <p>Dans <a href="/category/git.html">git</a>.
+</p></footer><!-- /.post-info -->
+</section>
+
+        <aside id="sidebar">
+                <div class="widget">
+                        <h2>Catégories</h2>
+                        <ul>
+                           <li class="active"><a href="/category/git.html">git</a></li>
+                           <li ><a href="/category/python.html">python</a></li>
+                           <li ><a href="/category/shell.html">shell</a></li>
+                        </ul>
+                </div>
+        </aside><!-- /#sidebar -->
+
+</body>
+</html>
