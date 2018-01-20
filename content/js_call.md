@@ -61,3 +61,4 @@ var albert = new Person('Albert');
 console.log(albert.greet());
 ```
 
+4. 通过apply()和call()方法调用
