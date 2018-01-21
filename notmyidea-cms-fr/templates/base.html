@@ -34,7 +34,9 @@
                 {% if DISPLAY_PAGES_ON_MENU != False %}
                 <li><a href="{{ SITEURL }}/index.html">Accueil</a></li>
                 <li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
+                    {{page, '=========='}}
                 {% for p in pages %}
+                    {{page, p}}
                     <li {% if p == page %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
                 {% endfor %}
                 {% endif %}

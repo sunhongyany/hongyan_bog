@@ -15,7 +15,7 @@
 /***** Global *****/
 /* Body */
 body {
-    background: #FFC0CB;
+    background: #fff;
     color: #000305;
     font-size: 87.5%; /* Base font size: 14px */
     font-family: 'Trebuchet MS', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -155,10 +155,10 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 	#banner h1 {
         font-size: 3.571em; 
         line-height: 0;
-	    margin: 0 auto 0 auto;
+	    margin: 1em auto .6em auto;
     }
 	#banner h1 a:link, #banner h1 a:visited {
-		color: #000305;
+		color: #fd96a0f5;
 		display: block;
 		font-weight: bold;
 		margin: 0 auto .6em auto;
@@ -175,14 +175,13 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 	
 	/* Main Nav */
 	#banner nav {
-		background: #000305;
+		background:	#fbb6cc;
 		font-size: 1.143em;
 		height: 40px;
 		line-height: 30px;
-		margin: 0 auto 2em auto;
+		margin: 4em auto 2em auto;
 		padding: 0;
 		width: 90%;
-		
 		border-radius: 5px;
 		-moz-border-radius: 5px;
 		-webkit-border-radius: 5px;
@@ -200,7 +199,7 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 	}
 	#banner nav a:hover, #banner nav a:active,
 	#banner nav .active a:link, #banner nav .active a:visited {
-		background: #C74451;
+		background:	#FFB6C1;
 		color: #fff;
 		text-shadow: none !important;
 	}
@@ -242,7 +241,6 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 	overflow: hidden;
 	padding: 20px 20px;
 	width: 15%;
-	
 	border-radius: 10px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
@@ -314,7 +312,6 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 	padding: 20px;
 	text-align: left;
 	width: 760px;
-	
 	border-radius: 10px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
