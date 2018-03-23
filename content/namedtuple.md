@@ -1,6 +1,7 @@
 Title: namedtuple 
 Date: 2017-06-23 20:20
-Category: python
+Category: 学习笔记
+tags: python
 
 &emsp;&emsp;collections.namedtuple是一个工厂函数,它可以用来构建个一个带字段名的元祖和一个有名字的类，
 

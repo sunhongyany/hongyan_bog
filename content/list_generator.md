@@ -1,6 +1,7 @@
 Title: python中的内置序列（二）
-Date: 2010-06-03 20:20
-Category: python
+Date: 2017-06-03 22:20
+Category: 学习笔记
+Tags: python
 
 列表推导式python2与python3区别
 

@@ -1,6 +1,7 @@
 title: functools.lru_cache
 Date: 2017-06-25 20:30
-Category: python
+Category: 学习笔记
+Tags: python
 
 functools.lru_cache实现了备忘功能，他把耗时的函数结果保存起来，避免传入相同的参数时重复计
 

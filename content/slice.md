@@ -1,6 +1,7 @@
 Title: 切片
 Date: 2017-06-24 20:30
-Category: python
+Category: 学习笔记
+Tags: python
 
 给切片赋值
 

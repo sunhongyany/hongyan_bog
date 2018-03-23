@@ -1,6 +1,7 @@
 title: WebSocket
 Date: 2017-09-07 21:30
-Category: Tornado
+Category: 学习笔记
+Tags: Tornado
 
 WebSocket是HTML5规范中新提出的客户端-服务器通讯协议，协议本身使用新的ws://URL格式。
 

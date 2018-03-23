@@ -1,6 +1,7 @@
 title: 内置类型方法
 Date: 2017-08-26 20:30
-Category: python
+Category: 学习笔记
+Tags: python 
 
 内置类型的方法基本上不会调用子类覆盖的方法。例如，dict的子类覆盖的__getitem__()不会被内置类
 

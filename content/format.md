@@ -1,6 +1,7 @@
 Title: format用法
 Date: 2017-06-03 20:20
-Category: python
+Category: 学习笔记
+Tags: python
 
 1.通过位置获取参数
 

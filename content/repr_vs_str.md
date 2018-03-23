@@ -1,6 +1,7 @@
 Title: python中 __repr__和__str__ 
-Date: 2010-06-03 20:20
-Category: python
+Date: 2017-06-05 20:20
+Category: 学习笔记
+Tags: python
 
 python对象的一个基本要求就是它得有个合理的字符串表示形式，我们可以通过__repr__ 和__str__来满
 

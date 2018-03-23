@@ -1,6 +1,7 @@
 Title: 常见的映射方法
 Date: 2017-06-24 20:30
-Category: python
+Category: 学习笔记
+Tags: python
 
 常见的映射类型有dict，defaultdict，OrderDict。
 

@@ -1,6 +1,7 @@
 title: 接口与调用顺序
 Date: 2017-08-27 20:30
-Category: Tornado
+Category: 学习笔记
+Tags: Tornado
 
 1. initialize()
 

@@ -1,6 +1,7 @@
 title: js闭包
 Date: 2017-09-05 20:30
-Category: JS
+Category: 学习笔记
+Tags: JavaScript
 
 ```javascript
 var outer = "outer";

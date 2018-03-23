@@ -1,6 +1,7 @@
 Title: datetime
 Date: 2017-06-24 21:30
-Category: python
+Category: 学习笔记
+Tags: python
 
 &emsp;&emsp;datetime是Python处理日期和时间的标准库。
 

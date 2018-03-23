@@ -1,6 +1,7 @@
 title: arguments参数
 Date: 2017-09-06 20:30
-Category: JavaScript
+Category: 学习笔记
+Tags: JavaScript
 
 arguments参数是传递给函数的所有参数的集合。这个集合有个名为length的属性，它包含了参数的个数。
 

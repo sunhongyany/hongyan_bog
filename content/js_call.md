@@ -1,6 +1,7 @@
 title: js中各种调用方式
 Date: 2017-09-07 20:30
-Category: JavaScript
+Category: 学习笔记
+Tags: JavaScript
 
 1. 作为函数调用
 

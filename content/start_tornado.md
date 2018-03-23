@@ -1,6 +1,7 @@
 title: 初试tornado
 Date: 2017-08-24 20:30
-Category: Tornado
+Category: 学习笔记
+Tags: Tornado
 
 新建文件hello.py，代码如下：
 

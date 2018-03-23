@@ -1,6 +1,7 @@
 title: 使用可变类型作为参数的默认值
 Date: 2017-06-28 20:30
-Category: python
+Category: 学习笔记
+Tags: python
 
 ```python
 In [115]: class Bus():

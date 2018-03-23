@@ -1,6 +1,7 @@
 title: 重载运算符
 Date: 2017-08-25 20:30
-Category: python
+Category: 学习笔记
+Tags: python
 
 python对重载运算符施加类一些限制：
 

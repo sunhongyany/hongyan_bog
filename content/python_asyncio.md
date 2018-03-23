@@ -3,7 +3,7 @@ Date: 2018-02-23 20:30
 Category: 学习笔记
 Tags: python
 
-原文地址：https://www.jianshu.com/p/b5e347b3a17c
+原文地址: <https://www.jianshu.com/p/b5e347b3a17c>
 
 网络模型有很多中，为了实现高并发也有很多方案，多线程，多进程。无论多线程和多进程，IO的调度更多取决于系统，而协程的方式，调度来自用户，用户可以在函数中yield一个状态。使用协程可以实现高效的并发任务。Python的在3.4中引入了协程的概念，可是这个还是以生成器对象为基础，3.5则确定了协程的语法。下面将简单介绍asyncio的使用。实现协程的不仅仅是asyncio，tornado和gevent都实现了类似的功能。
 

@@ -1,6 +1,7 @@
 title: 实例属性和原型属性
 Date: 2017-09-09 19:30
-Category: JS
+Category: 学习笔记 
+Tags: JavaScript 
 
 利用函数作用域来实现类的效果。
 

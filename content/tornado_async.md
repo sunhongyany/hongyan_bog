@@ -1,6 +1,7 @@
 title: Tornado异步
 Date: 2017-09-06 21:30
-Category: Tornado
+Category: 学习笔记
+Tags: Tornado
 
 因为epoll主要是用来解决网络IO的并发问题，所以Tornado的异步编程也主要体现在网络IO的异步上，即异步Web请求。
 

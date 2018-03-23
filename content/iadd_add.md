@@ -1,6 +1,7 @@
 Title: 序列增量赋值
 Date: 2017-06-24 20:30
-Category: python
+Category: 学习笔记
+Tags: python
 
 &emsp;&emsp;+=背后的特殊方法是__iadd__(用于就地加法)，如果一个类没有这个方法，就会调用__add__。
 

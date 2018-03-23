@@ -1,6 +1,7 @@
 title: python的私有属性和受保护的属性
 Date: 2017-07-25 20:30
-Category: python
+Category: 学习笔记
+Tags: python
 
 编写一个dog类，这个类的内部用到了mood实例属性，但没有将其开放，现在如果创建一个dog子类
 

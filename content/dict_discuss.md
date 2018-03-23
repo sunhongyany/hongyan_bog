@@ -1,6 +1,7 @@
 Title: 有关dict
 Date: 2017-06-24 20:30
-Category: python
+Category: 学习笔记
+Tags: python
 
 1.键必须是可散列的。
 

@@ -1,6 +1,7 @@
 title: Output
 Date: 2017-08-26 20:30
-Category: tornado
+Category: 学习笔记
+Tags: tornado
 
 1. write(chunk)
 

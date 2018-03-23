@@ -1,6 +1,7 @@
 title: 闭包
 Date: 2017-06-24 20:30
-Category: python
+Category: 学习笔记
+Tags: python
 
 闭包指延伸了作用域的函数，其中包含函数体中的引用，但是不在定义体中定义的非全局变量。
 

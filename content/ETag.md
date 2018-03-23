@@ -1,6 +1,7 @@
 title: ETag
 Date: 2017-12-06 20:30
-Category: 网络
+Category: 学习笔记
+Tags: 网络
 
 ETag 是 Entity Tag 的缩写，中文译过来就是实体标签的意思。在HTTP1.1协议中其实就是请求HEAD中
 

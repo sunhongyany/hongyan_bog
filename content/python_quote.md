@@ -1,6 +1,7 @@
 title: urllib中的quote函数
 Date: 2017-09-19 19:30
-Category: python
+Category: 学习笔记
+Tags: python
 
 urllib.parse.quote(text)
 

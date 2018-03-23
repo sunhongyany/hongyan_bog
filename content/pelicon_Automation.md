@@ -1,6 +1,7 @@
 title: Pelican自动发布网站
 Date: 2017-05-19 20:30
-Category: Pelican
+Category: 学习笔记
+Tags: Pelican
 
 1. 使用make生成网站
     make html

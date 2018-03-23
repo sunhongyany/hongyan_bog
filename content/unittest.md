@@ -1,6 +1,7 @@
 title: unittest.mock - mock对象库
 Date: 2017-08-05 20:30
-Category: python
+Category: 学习笔记  
+Tags: python
 
 unittest.mock 是一个用于在Python中测试的库。它允许您使用模拟对象替换测试中的系统部件，并对其使用方式进行断言。
 

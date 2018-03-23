@@ -1,6 +1,7 @@
 title: JavaScript标准类型
 Date: 2017-09-05 20:30
-Category: JavaScript
+Category: 学习笔记
+tags: JavaScript
 
 JavaScript支持以下标准类型:
 

@@ -1,6 +1,7 @@
 title: 弱引用
 Date: 2017-06-28 20:30
-Category: python
+Category: 学习笔记
+Tags: python
 
 弱引用不会增加对象的引用数量，引用的目标对象称为所指对象，弱引用在缓存应用中很有用，因为我
 

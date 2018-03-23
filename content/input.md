@@ -1,6 +1,7 @@
 title: Input
 Date: 2017-08-26 20:30
-Category: tornado
+Category: 学习笔记
+Tags: Tornado
 
 利用HTTP协议向服务器传参有几种途径？
 

@@ -1,6 +1,7 @@
 title: 函数作用域与块作用域
 Date: 2017-09-05 20:30
-Category: JavaScript
+Category: 学习笔记
+Tags: JavaScript
 
 JS变量以函数作为作用域。
 

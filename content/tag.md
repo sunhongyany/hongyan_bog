@@ -1,6 +1,7 @@
 title: 生成一个或多个HTML标签
 Date: 2017-06-24 20:30
-Category: python
+Category: 学习笔记
+Tags: python
 
 ```python
 In [3]: def tag(name, *content, cls=None, **attrs):

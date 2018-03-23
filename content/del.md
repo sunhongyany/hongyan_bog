@@ -1,6 +1,7 @@
 title: del和垃圾回收
 Date: 2017-06-28 20:30
-Category: python
+Category: 学习笔记
+tags: python
 
 del语句删除名称而不是对象，del命令可能会导致对象被当作垃圾回收，但仅当删除的变量保存的是引
 

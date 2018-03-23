@@ -1,6 +1,7 @@
 title: tornado简介
 Date: 2017-07-14 17:30
-Category: Tornado
+Category: 学习笔记
+Tags: Tornado
 
 Tornado全称Tornado Web Server，是一个用Python语言写成的Web服务器兼Web应用框架，由
 

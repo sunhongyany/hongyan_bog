@@ -1,6 +1,7 @@
 title: property 
 Date: 2018-02-08 20:30
-Category: python
+Category: 学习笔记
+Tags: python
 
 ```python
 In [28]: class Person(object):

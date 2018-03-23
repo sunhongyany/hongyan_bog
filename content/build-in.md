@@ -1,6 +1,7 @@
 Title: python中的内置序列（一） 
 Date: 2017-06-03 20:20
-Category: python
+Category: 学习笔记
+Tags: python
 
 python的序列按存放的数据类型是否相同，可分为：
 

@@ -1,6 +1,7 @@
 title: 序列的修改，散列和切片
 Date: 2017-08-25 20:30
-Category: python
+Category: 学习笔记
+Tags: python
 
 ```python
 In [84]: from array import array

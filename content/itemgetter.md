@@ -1,6 +1,7 @@
 title: itemgetter与attrgetter
 Date: 2017-06-24 20:30
-Category: python
+Category: 学习笔记
+Tags: python
 
 itemgetter的常见用途：根据元祖的某个字段给元祖列表排序。
 

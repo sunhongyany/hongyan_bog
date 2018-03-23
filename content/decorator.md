@@ -1,6 +1,7 @@
 title: 装饰器
 Date: 2017-06-25 20:30
-Category: python
+Category: 学习笔记
+Tags: python
 
 函数装饰器用于在源码中标记函数，以某种方式增强函数的行为。
 

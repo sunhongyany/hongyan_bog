@@ -1,6 +1,7 @@
 title: memoryview
 Date: 2017-07-25 20:30
-Category: python
+Category: 学习笔记
+Tags: python
 
 memoryview是一个内置类，她能让用户在不复制内容的情况下操作同一个数组的不同切片。
 

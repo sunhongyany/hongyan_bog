@@ -1,6 +1,7 @@
 title: tornado.options模块
 Date: 2017-08-25 10:30
-Category: Tornado
+Category: 学习笔记
+tags: Tornado
 
 tornado.options模块——全局参数定义、存储、转换。
 

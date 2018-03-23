@@ -1,6 +1,7 @@
 title: git基础
 Date: 2017-06-25 20:30
-Category: git
+Category: 学习笔记
+Tags: Git
 
 ### 获取git仓库
 

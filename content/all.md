@@ -1,6 +1,7 @@
 title: __all__的作用
 Date: 2017-06-24 20:30
-Category: python
+Category: 学习笔记
+tags: python
 
 __all__是一个string元素组成的list变量，定义了当你使用 from <module> import * 导入某个模块的时候能导出的符
 

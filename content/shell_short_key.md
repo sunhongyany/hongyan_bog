@@ -1,6 +1,7 @@
 Title: shell 快捷键
 Date: 2017-05-23 20:00
-Category: shell
+Category: 学习笔记
+tags: Shell
 
 ctrl+a 跳到所在行的开头
 
